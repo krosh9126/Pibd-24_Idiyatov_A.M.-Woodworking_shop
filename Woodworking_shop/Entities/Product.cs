@@ -20,17 +20,17 @@ public class Product
         StorageQty = storageQty;
     }
 
-    public static Product CreateEntity(int id, string name, ProductCategory category, double price, int storageQty)
+    public static Product CreateEntity(int id, string name, ProductCategory category, double? price, int? storageQty)
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("Название изделия не может быть пустым.", nameof(name));
 
-        if (price < 0)
+        if (price < 0 || price == null)
             throw new ArgumentException("Цена не может быть отрицательной.", nameof(price));
 
-        if (storageQty < 0)
+        if (storageQty < 0 || storageQty == null)
             throw new ArgumentException("Остаток на складе не может быть отрицательным.", nameof(storageQty));
 
-        return new Product(id, name, category, price, storageQty);
+        return new Product(id, name, category, price.Value, storageQty.Value);
     }
 }

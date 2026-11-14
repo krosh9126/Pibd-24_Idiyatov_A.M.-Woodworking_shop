@@ -24,7 +24,7 @@ public class Material
         ReservedQty = reservedQty;
     }
 
-    public static Material CreateEntity(int id, string name, MaterialType type, string unit, double unitPrice, double storageQty, double reservedQty)
+    public static Material CreateEntity(int id, string name, MaterialType type, string unit, double? unitPrice, double? storageQty, double? reservedQty)
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("Название материала не может быть пустым.", nameof(name));
@@ -32,9 +32,12 @@ public class Material
         if (string.IsNullOrWhiteSpace(unit))
             throw new ArgumentException("Единица измерения не может быть пустой.", nameof(unit));
 
+        if (unitPrice == null || storageQty == null || reservedQty == null)
+            throw new ArgumentException("Числовые значения не могут быть отрицательными.");
+
         if (unitPrice < 0 || storageQty < 0 || reservedQty < 0)
             throw new ArgumentException("Числовые значения не могут быть отрицательными.");
 
-        return new Material(id, name, type, unit, unitPrice, storageQty, reservedQty);
+        return new Material(id, name, type, unit, unitPrice.Value, storageQty.Value, reservedQty.Value);
     }
 }

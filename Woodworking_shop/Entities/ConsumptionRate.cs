@@ -17,17 +17,17 @@ public class ConsumptionRate
         QtyPerProduct = qtyPerProduct;
     }
 
-    public static ConsumptionRate CreateEntity(int id, int productId, int materialId, double qtyPerProduct)
+    public static ConsumptionRate CreateEntity(int id, int? productId, int? materialId, double? qtyPerProduct)
     {
-        if (productId <= 0)
+        if (productId == null)
             throw new ArgumentException("ID изделия должен быть больше нуля.", nameof(productId));
 
-        if (materialId <= 0)
+        if (materialId == null)
             throw new ArgumentException("ID материала должен быть больше нуля.", nameof(materialId));
 
-        if (qtyPerProduct <= 0)
+        if (qtyPerProduct == null)
             throw new ArgumentException("Количество на изделие должно быть больше нуля.", nameof(qtyPerProduct));
 
-        return new ConsumptionRate(id, productId, materialId, qtyPerProduct);
+        return new ConsumptionRate(id, productId.Value, materialId.Value, qtyPerProduct.Value);
     }
 }

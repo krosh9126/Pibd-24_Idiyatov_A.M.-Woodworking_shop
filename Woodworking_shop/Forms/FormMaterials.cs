@@ -54,7 +54,7 @@ namespace Woodworking_shop.Forms
             try
             {
                 var form = _container.Resolve<FormMaterial>();
-                form.Id = findId; // Передаем ID для заполнения полей
+                form.Id = findId; 
                 form.ShowDialog();
                 LoadList();
             }

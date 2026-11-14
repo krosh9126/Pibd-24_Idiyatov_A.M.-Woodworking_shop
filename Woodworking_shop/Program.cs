@@ -14,10 +14,8 @@ namespace WoodworkShop
         [STAThread]
         static void Main()
         {
-            // Инициализация конфигурации приложения (шрифты, DPI и т.д.)
             ApplicationConfiguration.Initialize();
 
-            // Создаем контейнер, резолвим главную форму и запускаем её
             Application.Run(CreateContainer().Resolve<FormMain>());
         }
 
@@ -27,9 +25,6 @@ namespace WoodworkShop
         private static IUnityContainer CreateContainer()
         {
             var container = new UnityContainer();
-
-            // Регистрация зависимостей (Интерфейс -> Реализация)
-            // Используем TransientLifetimeManager, чтобы каждый раз создавался новый экземпляр репозитория
 
             container.RegisterType<IProductRepository, ProductRepository>(new TransientLifetimeManager());
             container.RegisterType<IMaterialRepository, MaterialRepository>(new TransientLifetimeManager());

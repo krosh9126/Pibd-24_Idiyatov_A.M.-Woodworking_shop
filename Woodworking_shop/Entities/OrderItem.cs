@@ -17,17 +17,17 @@ public class OrderItem
         Quantity = quantity;
     }
 
-    public static OrderItem CreateEntity(int id, int orderId, int productId, int quantity)
+    public static OrderItem CreateEntity(int id, int? orderId, int? productId, int? quantity)
     {
-        if (orderId <= 0)
+        if (orderId == null)
             throw new ArgumentException("ID заказа должен быть больше нуля.", nameof(orderId));
 
-        if (productId <= 0)
+        if (productId == null)
             throw new ArgumentException("ID изделия должен быть больше нуля.", nameof(productId));
 
-        if (quantity <= 0)
+        if (quantity == null)
             throw new ArgumentException("Количество изделий должно быть больше нуля.", nameof(quantity));
 
-        return new OrderItem(id, orderId, productId, quantity);
+        return new OrderItem(id, orderId.Value, productId.Value, quantity.Value);
     }
 }

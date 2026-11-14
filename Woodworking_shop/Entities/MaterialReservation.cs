@@ -21,17 +21,17 @@ public class MaterialReservation
         Status = status;
     }
 
-    public static MaterialReservation CreateEntity(int id, int orderId, int materialId, double quantity, DateTime reservationDate, string status)
+    public static MaterialReservation CreateEntity(int id, int? orderId, int? materialId, double? quantity, DateTime reservationDate, string status)
     {
-        if (orderId <= 0 || materialId <= 0)
+        if (orderId == null || materialId == null)
             throw new ArgumentException("ID заказа и материала должны быть больше нуля.");
 
-        if (quantity <= 0)
+        if (quantity <= 0 || quantity == null)
             throw new ArgumentException("Количество резервируемого материала должно быть больше нуля.", nameof(quantity));
 
         if (string.IsNullOrWhiteSpace(status))
             throw new ArgumentException("Статус резерва не может быть пустым.", nameof(status));
 
-        return new MaterialReservation(id, orderId, materialId, quantity, reservationDate, status);
+        return new MaterialReservation(id, orderId.Value, materialId.Value, quantity.Value, reservationDate, status);
     }
 }
