@@ -24,7 +24,7 @@ public class MaterialReservation
     public static MaterialReservation CreateEntity(int id, int? orderId, int? materialId, double? quantity, DateTime reservationDate, string status)
     {
         if (orderId == null || materialId == null)
-            throw new ArgumentException("ID заказа и материала должны быть больше нуля.");
+            throw new ArgumentException("ID заказа и материала не должно быть null");
 
         if (quantity <= 0 || quantity == null)
             throw new ArgumentException("Количество резервируемого материала должно быть больше нуля.", nameof(quantity));

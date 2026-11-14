@@ -20,13 +20,16 @@ public class ConsumptionRate
     public static ConsumptionRate CreateEntity(int id, int? productId, int? materialId, double? qtyPerProduct)
     {
         if (productId == null)
-            throw new ArgumentException("ID изделия должен быть больше нуля.", nameof(productId));
+            throw new ArgumentException("ID изделия не должно быть null.", nameof(productId));
 
         if (materialId == null)
-            throw new ArgumentException("ID материала должен быть больше нуля.", nameof(materialId));
+            throw new ArgumentException("ID материала не должно быть null.", nameof(materialId));
+
+        if (qtyPerProduct <= 0)
+            throw new ArgumentException("Количество на изделие должно быть больше нуля.", nameof(qtyPerProduct));
 
         if (qtyPerProduct == null)
-            throw new ArgumentException("Количество на изделие должно быть больше нуля.", nameof(qtyPerProduct));
+            throw new ArgumentException("Количество на изделие не должно быть null.", nameof(qtyPerProduct));
 
         return new ConsumptionRate(id, productId.Value, materialId.Value, qtyPerProduct.Value);
     }

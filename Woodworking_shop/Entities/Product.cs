@@ -26,10 +26,10 @@ public class Product
             throw new ArgumentException("Название изделия не может быть пустым.", nameof(name));
 
         if (price < 0 || price == null)
-            throw new ArgumentException("Цена не может быть отрицательной.", nameof(price));
+            throw new ArgumentException("Цена не может быть отрицательной и не должно быть null.", nameof(price));
 
         if (storageQty < 0 || storageQty == null)
-            throw new ArgumentException("Остаток на складе не может быть отрицательным.", nameof(storageQty));
+            throw new ArgumentException("Остаток на складе не может быть отрицательным и не должно быть null.", nameof(storageQty));
 
         return new Product(id, name, category, price.Value, storageQty.Value);
     }

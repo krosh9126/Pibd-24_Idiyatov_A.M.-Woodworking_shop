@@ -33,7 +33,7 @@ public class Material
             throw new ArgumentException("Единица измерения не может быть пустой.", nameof(unit));
 
         if (unitPrice == null || storageQty == null || reservedQty == null)
-            throw new ArgumentException("Числовые значения не могут быть отрицательными.");
+            throw new ArgumentException("Числовые значения не могут null.");
 
         if (unitPrice < 0 || storageQty < 0 || reservedQty < 0)
             throw new ArgumentException("Числовые значения не могут быть отрицательными.");
