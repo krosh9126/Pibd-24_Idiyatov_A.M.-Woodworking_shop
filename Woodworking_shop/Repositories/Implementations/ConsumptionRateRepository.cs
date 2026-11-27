@@ -41,6 +41,12 @@ internal class ConsumptionRateRepository : IConsumptionRateRepository
         return _context.ConsumptionRates.AsNoTracking().Where(x => x.ProductId == productId).ToList();
     }
 
+    public IEnumerable<ConsumptionRate> ReadConsumptionRates()
+    {
+        _logger.LogInformation("Получение всех норм расхода");
+        return _context.ConsumptionRates.AsNoTracking().ToList();
+    }
+
     public void UpdateConsumptionRate(ConsumptionRate rate)
     {
         _logger.LogInformation("Обновление нормы расхода ID: {Id}", rate.Id);

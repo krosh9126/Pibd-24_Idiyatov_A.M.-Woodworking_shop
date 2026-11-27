@@ -36,6 +36,9 @@ partial class FormMain
         ordersToolStripMenuItem = new ToolStripMenuItem();
         reservationsToolStripMenuItem = new ToolStripMenuItem();
         ReportsToolStripMenuItem = new ToolStripMenuItem();
+        DirectoryReportToolStripMenuItem = new ToolStripMenuItem();
+        ProductReportToolStripMenuItem = new ToolStripMenuItem();
+        ProductChartReportToolStripMenuItem = new ToolStripMenuItem();
         menuStrip.SuspendLayout();
         SuspendLayout();
         // 
@@ -59,14 +62,14 @@ partial class FormMain
         // productsToolStripMenuItem
         // 
         productsToolStripMenuItem.Name = "productsToolStripMenuItem";
-        productsToolStripMenuItem.Size = new Size(270, 34);
+        productsToolStripMenuItem.Size = new Size(207, 34);
         productsToolStripMenuItem.Text = "Изделия";
         productsToolStripMenuItem.Click += ProductsToolStripMenuItem_Click;
         // 
         // materialsToolStripMenuItem
         // 
         materialsToolStripMenuItem.Name = "materialsToolStripMenuItem";
-        materialsToolStripMenuItem.Size = new Size(270, 34);
+        materialsToolStripMenuItem.Size = new Size(207, 34);
         materialsToolStripMenuItem.Text = "Материалы";
         materialsToolStripMenuItem.Click += MaterialsToolStripMenuItem_Click;
         // 
@@ -93,9 +96,31 @@ partial class FormMain
         // 
         // ReportsToolStripMenuItem
         // 
+        ReportsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { DirectoryReportToolStripMenuItem, ProductReportToolStripMenuItem, ProductChartReportToolStripMenuItem });
         ReportsToolStripMenuItem.Name = "ReportsToolStripMenuItem";
         ReportsToolStripMenuItem.Size = new Size(88, 29);
         ReportsToolStripMenuItem.Text = "Отчёты";
+        // 
+        // DirectoryReportToolStripMenuItem
+        // 
+        DirectoryReportToolStripMenuItem.Name = "DirectoryReportToolStripMenuItem";
+        DirectoryReportToolStripMenuItem.Size = new Size(361, 34);
+        DirectoryReportToolStripMenuItem.Text = "Отчёт по справочникам";
+        DirectoryReportToolStripMenuItem.Click += DirectoryReportToolStripMenuItem_Click;
+        // 
+        // ProductReportToolStripMenuItem
+        // 
+        ProductReportToolStripMenuItem.Name = "ProductReportToolStripMenuItem";
+        ProductReportToolStripMenuItem.Size = new Size(361, 34);
+        ProductReportToolStripMenuItem.Text = "Отчёт по материалам изделия";
+        ProductReportToolStripMenuItem.Click += ProductReportToolStripMenuItem_Click;
+        // 
+        // ProductChartReportToolStripMenuItem
+        // 
+        ProductChartReportToolStripMenuItem.Name = "ProductChartReportToolStripMenuItem";
+        ProductChartReportToolStripMenuItem.Size = new Size(361, 34);
+        ProductChartReportToolStripMenuItem.Text = "Диаграмма заказов";
+        ProductChartReportToolStripMenuItem.Click += ProductChartReportToolStripMenuItem_Click;
         // 
         // FormMain
         // 
@@ -124,4 +149,7 @@ partial class FormMain
     private ToolStripMenuItem materialsToolStripMenuItem;
     private ToolStripMenuItem ordersToolStripMenuItem;
     private ToolStripMenuItem reservationsToolStripMenuItem;
+    private ToolStripMenuItem DirectoryReportToolStripMenuItem;
+    private ToolStripMenuItem ProductReportToolStripMenuItem;
+    private ToolStripMenuItem ProductChartReportToolStripMenuItem;
 }

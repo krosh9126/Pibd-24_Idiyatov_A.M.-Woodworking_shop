@@ -59,5 +59,44 @@ namespace Woodworking_shop.Forms
                 MessageBox.Show(ex.Message, "Ошибка при загрузке", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void DirectoryReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _container.Resolve<FormDirectoryReport>().ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка при загрузке отчёта",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ProductReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _container.Resolve<FormProductReport>().ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка при загрузке отчёта",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ProductChartReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _container.Resolve<FormProductChartReport>().ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка при загрузке отчёта",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

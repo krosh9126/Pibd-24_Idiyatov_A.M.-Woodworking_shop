@@ -1,14 +1,16 @@
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Serilog;
+using System.IO;
 using Unity;
 using Unity.Lifetime;
 using Unity.Microsoft.Logging;
-using Microsoft.Extensions.Logging;
-using Serilog;
+using Woodworking_shop.Entities;
+using Woodworking_shop.Forms;
+using Woodworking_shop.Reports;
+using Woodworking_shop.Reports.Builders;
 using Woodworking_shop.Repositories;
 using Woodworking_shop.Repositories.Implementations;
-using Woodworking_shop.Forms;
-using Woodworking_shop.Entities;
-using Microsoft.Extensions.Configuration;
-using System.IO;
 
 namespace Woodworking_shop
 {
@@ -45,7 +47,13 @@ namespace Woodworking_shop
             container.RegisterType<IMaterialReservationRepository, MaterialReservationRepository>(new TransientLifetimeManager());
             container.RegisterType<IConsumptionRateRepository, ConsumptionRateRepository>(new TransientLifetimeManager());
             container.RegisterType<IOrderItemRepository, OrderItemRepository>(new TransientLifetimeManager());
+            container.RegisterType<WordReport>();
+            container.RegisterType<ExcelReport>();
+            container.RegisterType<ChartReport>();
 
+            container.RegisterType<FormDirectoryReport>();
+            container.RegisterType<FormProductReport>();
+            container.RegisterType<FormProductChartReport>();
             return container;
         }
     }
