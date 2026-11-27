@@ -51,8 +51,10 @@ namespace Woodworking_shop.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var details = ex.InnerException != null ? $"\n\nДетали БД:\n{ex.InnerException.Message}" : "";
+                MessageBox.Show(ex.Message + details, "Ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void ButtonCancel_Click(object sender, EventArgs e) => Close();
